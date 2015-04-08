@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>IPython</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <style type="text/css">
+      @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+      @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+
+      body { font-family: 'Droid Serif'; }
+      h1, h2, h3 {
+        font-family: 'Yanone Kaffeesatz';
+        font-weight: normal;
+      }
+      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+    </style>
+  </head>
+  <body>
+    <textarea id="source">
+
+class: center, middle
+
+# IPython
+## How IPython can make your life easier
+
+---
+
+# Outline
+
+1. Introduction
+2. IPython as a REPL
+3. IPython Notebook and Magics
+
+---
+
+# Introduction
+## What is IPython? (According to their website)
+* Powerful interactive shells (terminal and Qt-based)
+* A browser-based notebook with support for code, text, mathematical
+  expressions, inline plots and other rich media.
+* Support for interactive data visualization and use of GUI toolkits.
+* Flexible, embeddable interpreters to load into your own projects.
+  - We're not going into details here.
+* Easy to use, high performance tools for parallel computing.
+  - We're not going into details here either.
+-----------
+* **You don't have to use all of IPython's functionality to benefit from using
+    it.**
+
+---
+
+class: center, middle
+
+# Why IPython is immediately better than the normal REPL
+
+---
+#Tab completion on imports
+```python
+In [1]: import num
+numbers  numpy
+
+In [1]: import numbers
+
+In [2]: numbers.
+numbers.ABCMeta         numbers.Number          numbers.abstractmethod
+numbers.Complex         numbers.Rational
+numbers.Integral        numbers.Real
+```
+
+---
+Tab completion for objects
+
+```python
+
+In [4]: somestring = 'what a good string'
+
+In [5]: allcaps = somestring.caps()
+---------------------------------------------------------------------------
+AttributeError                            Traceback (most recent call last)
+<ipython-input-5-ba16cacdbed4> in <module>()
+----> 1 allcaps = somestring.caps()
+
+AttributeError: 'str' object has no attribute 'caps'
+
+In [6]: allcaps = somestring.
+somestring.capitalize    somestring.isidentifier  somestring.rindex
+somestring.casefold      somestring.islower       somestring.rjust
+...                      ...                      ...
+somestring.isalpha       somestring.partition     somestring.upper
+somestring.isdecimal     somestring.replace       somestring.zfill
+somestring.isdigit       somestring.rfind
+
+In [6]: allcaps = somestring.upper()
+
+In [7]: allcaps
+Out[7]: 'WHAT A GOOD STRING'
+
+```
+
+---
+### Remembers *all* output from the current session.
+
+
+```python
+
+In [45]: def take_forever_return_good_stuff():
+   ....:     """Takes forever, but returns good stuff."""
+   ....:     import time
+   ....:     time.sleep(5)
+   ....:     return 5.3
+   ....:
+
+In [46]: take_forever_return_good_stuff()
+Out[46]: 5.3
+
+In [47]: answer = Out[46]
+
+In [48]: answer
+Out[48]: 5.3
+```
+---
+
+class: center, middle
+Now let's talk about IPython notebook.
+---
+
+# What is IPython notebook?
+I'm so glad you asked.
+
+<sub>Now is the time to pull up the notebooks...</sub>
+
+---
+
+class: center, middle
+# That's all!
+## Thanks for coming out.
+
+---
+# Sources
+* [The IPython website](http://ipython.org/)
+
+    </textarea>
+    <script src="remark-latest.min.js">
+    </script>
+    <script>
+      var slideshow = remark.create();
+    </script>
+  </body>
+</html>
